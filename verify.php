@@ -1,7 +1,7 @@
 <?php
 $access_token = 'XXXXXXXXXXXXXXXXXXXXXXX';
 
-$url = 'https://api.line.me/v1/oauth/verify';
+$url = 'https://developers.line.me/v1/oauth/verify';
 
 $headers = array('Authorization: Bearer ' . $access_token);
 
