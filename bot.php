@@ -18,8 +18,8 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			
 			$sql="select * from chat_TB where chat_question like '%".$text."%'";
-			$result = $conn->query($sql);
-			$row = mysql_fetch_assoc($result);
+			$result = mysqli_query($conn, $sql);
+			$row = mysqli_fetch_assoc($result);
 			
 			// Build message to reply back
 			$messages = [
