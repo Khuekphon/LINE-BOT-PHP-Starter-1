@@ -16,11 +16,15 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+			
+			$sql="select * from chat_TB where chat_question like '%".$text."%'";
+			$result = $conn->query($sql);
+			$row = mysql_fetch_assoc($result);
+			
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'สวัสดีครับ'
+				'text' => $row['chat_answer']
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
