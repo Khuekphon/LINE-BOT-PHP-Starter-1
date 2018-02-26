@@ -12,6 +12,7 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+			$text = $event['message']['text'];
 			
 			$sql="select * from chat_TB where chat_question like '%".$text."%'";
 			$result = mysqli_query($conn, $sql);
@@ -21,7 +22,7 @@ if (!is_null($events['events'])) {
 				//$m .= "- ".$row['chat_answer']."\r\n";
 				// Build message to reply back
 				// Get text sent
-				$text = $event['message']['text'];
+				
 				// Get replyToken
 				$replyToken = $event['replyToken'];
 				
