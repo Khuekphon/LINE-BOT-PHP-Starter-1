@@ -22,10 +22,10 @@ if (!is_null($events['events'])) {
 			
 			//$m ="";
 			$row = mysqli_fetch_assoc($result);
-			$arr=array('ooo','ppppp');
+			
 			$messages = [
 					'type' => 'text',
-					'text' => $arr
+					'text' => $row['chat_answer']
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
