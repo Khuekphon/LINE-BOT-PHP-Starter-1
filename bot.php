@@ -20,14 +20,16 @@ if (!is_null($events['events'])) {
 			$sql="select * from chat_TB where chat_question like '%".$text."%'";
 			$result = mysqli_query($conn, $sql);
 			
-			
-			$row = mysqli_fetch_assoc($result);
+			$m ="";
+			while($row = mysqli_fetch_assoc($result)){
+				$m .= "- ".$row['chat_answer']."\r\n";
+			}
 				
 			
 				// Build message to reply back
 				$messages = [
 					'type' => 'text',
-					'text' => $row['chat_answer']
+					'text' => $m
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
