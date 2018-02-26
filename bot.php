@@ -25,7 +25,7 @@ if (!is_null($events['events'])) {
 			
 			$messages = [
 					'type' => 'text',
-					'text' => $row['chat_answer']
+					'text' => 'xxx'
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
@@ -34,14 +34,14 @@ if (!is_null($events['events'])) {
 				
 			
 				$data = [
-					{
+					[
 						'replyToken' => $replyToken,
 						'messages' => [$messages]
-					},
-					{
+					],
+					[
 						'replyToken' => $replyToken,
 						'messages' => [$messages]
-					}
+					]
 				];
 			
 				
