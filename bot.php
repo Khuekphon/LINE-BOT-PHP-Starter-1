@@ -21,6 +21,8 @@ if (!is_null($events['events'])) {
 			$result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_assoc($result);
 			
+			
+			
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
@@ -31,7 +33,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages],
+				'messages' => [$messages,$messages],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
