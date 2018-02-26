@@ -38,8 +38,8 @@ if (!is_null($events['events'])) {
 					'messages' => [$messages],
 				];
 			
-			
-				$post = json_encode($data);
+				$json = file_get_contents('JSON.php');
+				$post = $json;
 			
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
