@@ -13,31 +13,34 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			$text = $event['message']['text'];
+			// Get replyToken
+				$replyToken = $event['replyToken'];
+			
 			
 			$sql="select * from chat_TB where chat_question like '%".$text."%'";
 			$result = mysqli_query($conn, $sql);
 			
 			//$m ="";
-			while($row = mysqli_fetch_assoc($result)){
-				//$m .= "- ".$row['chat_answer']."\r\n";
-				// Build message to reply back
-				// Get text sent
-				
-				// Get replyToken
-				$replyToken = $event['replyToken'];
-				
-				$messages = [
+			$row = mysqli_fetch_assoc($result);
+			
+			$messages = [
 					'type' => 'text',
 					'text' => $row['chat_answer']
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
 				$url = 'https://api.line.me/v2/bot/message/reply';
+			
 				$data = [
 					'replyToken' => $replyToken,
 					'messages' => [$messages],
 				];
-				$post = json_encode($data);
+			$arr = array();
+			$arr[] = $data;
+			$arr[] = $data;
+			$arr[] = $data;
+			
+				$post = json_encode($arr);
 			
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
@@ -51,9 +54,6 @@ if (!is_null($events['events'])) {
 				curl_close($ch);
 
 				echo $result . "\r\n";
-
-			}
-			
 		}
 	}
 }
