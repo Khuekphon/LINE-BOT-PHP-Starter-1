@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 			$result = mysqli_query($conn, $sql);
 			
 			
-			$row = mysqli_fetch($result);
+			$row = mysqli_fetch_assoc($result);
 				
 			
 				// Build message to reply back
