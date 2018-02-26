@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 			$result = mysqli_query($conn, $sql);
 			
 			
-			while($row = mysqli_fetch($result)){
+			$row = mysqli_fetch($result);
 				
 			
 				// Build message to reply back
@@ -49,7 +49,7 @@ if (!is_null($events['events'])) {
 				curl_close($ch);
 
 				echo $result . "\r\n";
-			}
+			
 			
 			
 		}
