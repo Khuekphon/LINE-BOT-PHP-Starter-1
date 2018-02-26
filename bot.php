@@ -38,8 +38,8 @@ if (!is_null($events['events'])) {
 					'messages' => [$messages],
 				];
 			
-				$json = file_get_contents('JSON.php?key=อบรม&reply_key='.$replyToken);
-				$post = $json;
+				
+				$post = json_encode($data);
 			
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
