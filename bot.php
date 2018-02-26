@@ -34,14 +34,10 @@ if (!is_null($events['events'])) {
 				
 			
 				$data = [
-					[
+					
 						'replyToken' => $replyToken,
 						'messages' => [$messages]
-					],
-					[
-						'replyToken' => $replyToken,
-						'messages' => [$messages]
-					]
+					
 				];
 			
 				
