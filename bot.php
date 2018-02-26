@@ -12,24 +12,22 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
-			$text = $event['message']['text'];
-			// Get replyToken
-			$replyToken = $event['replyToken'];
 			
 			$sql="select * from chat_TB where chat_question like '%".$text."%'";
 			$result = mysqli_query($conn, $sql);
 			
-			$m ="";
+			//$m ="";
 			while($row = mysqli_fetch_assoc($result)){
-				$m .= "- ".$row['chat_answer']."\r\n";
-			}
-				
-			
+				//$m .= "- ".$row['chat_answer']."\r\n";
 				// Build message to reply back
+				// Get text sent
+				$text = $event['message']['text'];
+				// Get replyToken
+				$replyToken = $event['replyToken'];
+				
 				$messages = [
 					'type' => 'text',
-					'text' => $m
+					'text' => $row['chat_answer']
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
@@ -39,6 +37,7 @@ if (!is_null($events['events'])) {
 					'messages' => [$messages],
 				];
 				$post = json_encode($data);
+			
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
 				$ch = curl_init($url);
@@ -51,8 +50,8 @@ if (!is_null($events['events'])) {
 				curl_close($ch);
 
 				echo $result . "\r\n";
-			
-			
+
+			}
 			
 		}
 	}
