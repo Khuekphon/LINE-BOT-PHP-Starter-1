@@ -22,26 +22,20 @@ if (!is_null($events['events'])) {
 			
 			//$m ="";
 			$row = mysqli_fetch_assoc($result);
-			
+			$arr=array('ooo','ppppp');
 			$messages = [
 					'type' => 'text',
-					'text' => $row['chat_answer']
+					'text' => $arr
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
 				$url = 'https://api.line.me/v2/bot/message/reply';
 			
-				$row = mysqli_fetch_assoc($result);
-			
-			$messages2 = [
-					'type' => 'text',
-					'text' => $row['chat_answer']
-				];
-			
+				
 			
 				$data = [
 					'replyToken' => $replyToken,
-					'messages' => [$messages,$messages2],
+					'messages' => [$messages],
 				];
 			
 			
