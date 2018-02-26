@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => $row['chat_answer']
 			];
-			$bot=[ ];
+			$bot=array();
 			$bot[]=$messages;
 			$bot[]=$messages;
 			$bot[]=$messages;
