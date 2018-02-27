@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 			$result = mysqli_query($conn, $sql);
 			
 
-			$row = mysqli_fetch_assoc($result);
+			
 			
 			$messages = array(
 				while($row = $result->fetch_assoc()){
