@@ -26,11 +26,11 @@ if (!is_null($events['events'])) {
 			$messages = array(
 				array(
 				'type' => 'text',
-				'text' => $text.'/'.$replyToken
+				'text' => $row['chat_answer'].'/'.$replyToken
 				),
 				array(
 				'type' => 'text',
-				'text' => $text.'/'.$replyToken
+				'text' => $row['chat_answer'].'/'.$replyToken
 				)
 				
 			);
