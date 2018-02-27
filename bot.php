@@ -20,11 +20,11 @@ if (!is_null($events['events'])) {
 			$sql="select * from chat_TB where chat_question like '%".$text."%'";
 			$result = mysqli_query($conn, $sql);
 			
-			//$m ="";
+
 			$row = mysqli_fetch_assoc($result);
 			
 			$messages = array(
-				while($row<=4){
+				while($text<=3){
 				array(
 				'type' => 'text',
 				'text' => $row['chat_answer']
