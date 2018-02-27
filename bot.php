@@ -24,11 +24,11 @@ if (!is_null($events['events'])) {
 			$row = mysqli_fetch_assoc($result);
 			
 			$messages = array(
-				while($text<=text($row)){
+				while($row = $result->fetch_assoc()){
 				array(
 				'type' => 'text',
 				'text' => $row['chat_answer']
-				)
+				),
 				}
 				
 				
