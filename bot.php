@@ -19,20 +19,15 @@ if (!is_null($events['events'])) {
 			
 			$sql="select * from chat_TB where chat_question like '%".$text."%'";
 			$result = mysqli_query($conn, $sql);
-			
+			$out = array();
+			while($row = mysqli_fetch_assoc($result)){
+				$messages = [
+					'type' => 'text',
+					'text' => $row['chat_answer']
+				];
+				$out[] = $messages;
+			}
 
-			
-			
-			$messages = array(
-				while($row = $result->fetch_assoc()){
-				array(
-				'type' => 'text',
-				'text' => $row['chat_answer']
-				),
-				}
-				
-				
-			);
 				// Make a POST Request to Messaging API to reply to sender
 				$url = 'https://api.line.me/v2/bot/message/reply';
 			
@@ -41,7 +36,7 @@ if (!is_null($events['events'])) {
 				$data = [
 				
 					'replyToken' => $replyToken,
-					'messages' => $messages,
+					'messages' => $out,
 					
 				];
 			
