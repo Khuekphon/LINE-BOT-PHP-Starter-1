@@ -24,14 +24,13 @@ if (!is_null($events['events'])) {
 			$row = mysqli_fetch_assoc($result);
 			
 			$messages = array(
+				while($messages=$row['chat_answer']){
 				array(
 				'type' => 'text',
-				'text' => $row['chat_answer'].'/'.$replyToken
-				),
-				array(
-				'type' => 'text',
-				'text' => $row['chat_answer'].'/'.$replyToken
+				'text' => $row['chat_answer']
 				)
+				}
+				
 				
 			);
 				// Make a POST Request to Messaging API to reply to sender
@@ -40,8 +39,10 @@ if (!is_null($events['events'])) {
 				
 			
 				$data = [
+				
 					'replyToken' => $replyToken,
 					'messages' => $messages,
+					
 				];
 			
 				
