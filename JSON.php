@@ -11,7 +11,7 @@ $row = mysqli_fetch_assoc($result);
 
 	$data = [
 		'replyToken' => $_GET["reply_key"],
-		'messages' => [$messages,$messages],
+		'messages' => $messages,
 	];
 	$post = json_encode($data);
 	
