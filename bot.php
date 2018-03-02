@@ -35,6 +35,10 @@ if (!is_null($events['events'])) {
 			$out = array(
 				array(
 				'type' => 'text',
+				'text' => 'ขออภัย!! แชทบอททางศูนย์คอมพิวเตอร์ไม่สะดวก สามารถสอบถามได้ช่องทางนี้'
+				),
+				array(
+				'type' => 'text',
 				'text' => 'https://cc.rmu.ac.th/2017/'
 				),
 				array(
@@ -43,7 +47,7 @@ if (!is_null($events['events'])) {
 				),
 				array(
 				'type' => 'text',
-				'text' => 'email: cc.rmu.ac.th'
+				'text' => 'ติต่อเจ้าหน้าที่ https://cc.rmu.ac.th/2017/about/contact/'
 				),
 			);
 			}
