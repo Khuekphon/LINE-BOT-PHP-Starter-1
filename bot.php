@@ -45,10 +45,6 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => 'เบอร์โทรติดต่อ 043-712160'
 				),
-				array(
-				'type' => 'text',
-				'text' => 'ติต่อเจ้าหน้าที่ https://cc.rmu.ac.th/2017/about/contact/'
-				),
 			);
 			}
 
