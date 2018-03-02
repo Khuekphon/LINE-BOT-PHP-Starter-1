@@ -19,13 +19,33 @@ if (!is_null($events['events'])) {
 			
 			$sql="select * from chat_TB where chat_question like '%".$text."%'";
 			$result = mysqli_query($conn, $sql);
+			$row_cnt = $result->num_rows;
+			if($row_cnt > 0){
 			$out = array();
+		
 			while($row = mysqli_fetch_assoc($result)){
 				$messages = [
 					'type' => 'text',
 					'text' => $row['chat_answer']
 				];
 				$out[] = $messages;
+		
+			}
+			}else{
+			$out = array(
+				array(
+				'type' => 'text',
+				'text' => 'https://cc.rmu.ac.th/2017/'
+				),
+				array(
+				'type' => 'text',
+				'text' => 'เบอร์โทรติดต่อ 043-712160'
+				),
+				array(
+				'type' => 'text',
+				'text' => 'email: cc.rmu.ac.th'
+				),
+			);
 			}
 
 				// Make a POST Request to Messaging API to reply to sender
